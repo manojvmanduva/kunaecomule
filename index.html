@@ -120,7 +120,22 @@ td.big { font-family: var(--f-ui); font-stretch: 75%; font-weight: 700; font-siz
 html { scroll-behavior: smooth }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
 .site-nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; padding-block: 10px; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule) }
-.nav-logo .logo { width: 84px }
+.nav-home { font-family: var(--f-ui); font-stretch: 75%; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); text-decoration: none }
+.nav-links { align-items: center }
+.mast-top .logo { width: min(460px, 78vw) }
+.cta { display: inline-flex; align-items: center; font-family: var(--f-code); font-weight: 700; font-size: .95rem; padding: 12px 20px; background: var(--brand); color: var(--paper); border: 1px solid var(--brand); text-decoration: none; white-space: nowrap }
+.cta:hover { background: var(--ink); border-color: var(--ink); color: var(--paper) }
+.cta:focus-visible, .copy:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px }
+.cta.ghost { background: transparent; color: var(--ink); border-color: var(--rule) }
+.cta.ghost:hover { border-color: var(--brand); color: var(--brand); background: transparent }
+.nav-links a.cta-sm { padding: 6px 12px; font-size: .82rem; color: var(--paper) }
+.nav-links a.cta-sm:hover { color: var(--paper) }
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px }
+.addr { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; font-size: .95rem }
+.mail { font-family: var(--f-code); user-select: all; overflow-wrap: anywhere }
+.copy { font: inherit; font-family: var(--f-code); font-size: .78rem; background: none; color: var(--brand); border: 1px solid var(--rule); padding: 3px 8px; cursor: pointer }
+.copy:hover { border-color: var(--brand) }
+@media (max-width: 600px) { .nav-links a:not(.cta) { display: none } .site-nav { flex-wrap: nowrap } }
 .nav-links { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--f-code); font-size: .85rem }
 .nav-links a { color: var(--ink); text-decoration: none }
 .nav-links a:hover { color: var(--brand) }
@@ -166,21 +181,26 @@ body.lb-open { overflow: hidden }
 .lb-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px }
 .lb-nav { font-size: 1.6rem; line-height: 1; padding: 10px 14px }
 @media (max-width: 760px) { .lb-stage { grid-template-columns: 1fr 1fr; } .lb-stage img { grid-column: 1 / -1; grid-row: 1 } .lb-nav { grid-row: 2 } }
-@media (max-width: 760px) { .mast-top .code { text-align: left } .nav-logo .logo { width: 64px } }
+@media (max-width: 760px) { .mast-top .code { text-align: left } }
 </style>
 </head>
 <body>
 
 <div class="wrap">
   <nav class="site-nav" aria-label="Site">
-    <a class="nav-logo" href="#top" aria-label="KUNA Motors, back to top"><svg class="logo" viewBox="766 230 468 120" role="img" aria-label="KUNA"><path fill="currentColor" d="M769,235 H808 V272 Q835,268 835,235 H874 Q874,270 852,291 Q874,312 874,347 H835 Q835,312 808,308 V347 H769 Z M889,233 H924 V295 Q924,311 942,311 Q960,311 960,295 V233 H996 V295 Q996,347 942,347 Q889,347 889,295 Z M1011,233 H1047 L1082,285 V233 H1118 V347 H1082 L1047,297 V347 H1011 Z M1126,347 L1163,235 H1194 L1231,347 H1195 L1178,293 L1161,347 Z"/></svg></a>
-    <div class="nav-links"><a href="#why">Why</a><a href="#cargo">Cargo E-Bike</a><a href="#ecomule">EcoMule</a><a href="#credit">Credit</a></div>
+    <a class="nav-home" href="#top">KUNA Motors</a>
+    <div class="nav-links"><a href="#why">Why</a><a href="#cargo">Cargo E-Bike</a><a href="#ecomule">EcoMule</a><a href="#credit">Credit</a><a class="cta cta-sm" href="mailto:manojvmanduva@gmail.com?subject=KUNA%20Motors">Get in touch</a></div>
   </nav>
 
   <header class="mast" id="top">
     <div class="mast-top"><svg class="logo" viewBox="766 230 468 120" role="img" aria-label="KUNA"><path fill="currentColor" d="M769,235 H808 V272 Q835,268 835,235 H874 Q874,270 852,291 Q874,312 874,347 H835 Q835,312 808,308 V347 H769 Z M889,233 H924 V295 Q924,311 942,311 Q960,311 960,295 V233 H996 V295 Q996,347 942,347 Q889,347 889,295 Z M1011,233 H1047 L1082,285 V233 H1118 V347 H1082 L1047,297 V347 H1011 Z M1126,347 L1163,235 H1194 L1231,347 H1195 L1178,293 L1161,347 Z"/></svg><p class="code">KUNA Motors<br>Mobility concepts for everyday work</p></div>
     <h1>Machines designed around livelihoods.</h1>
     <p class="lead">KUNA explores compact, practical mobility for people whose vehicle is also part of their work: simple architecture, low operating cost, modular utility, and a form that changes with the job.</p>
+    <div class="contact">
+      <a class="cta" href="mailto:manojvmanduva@gmail.com?subject=KUNA%20Motors">Get in touch</a>
+      <a class="cta ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=manojvmanduva@gmail.com&su=KUNA%20Motors" target="_blank" rel="noopener">Write in Gmail</a>
+      <span class="addr"><span class="code">or email</span> <span class="mail">manojvmanduva@gmail.com</span> <button type="button" class="copy" data-copy="manojvmanduva@gmail.com">Copy</button></span>
+    </div>
     <div class="index">
       <a class="card" href="#cargo"><span class="code">Vehicle 01 · FIG. 1–10</span><b>Cargo E-Bike</b><span>A low-cost electric cargo bike whose side panels become a workbench, powered by its own battery.</span></a>
       <a class="card" href="#ecomule"><span class="code">Vehicle 02 · FIG. 11–16</span><b>EcoMule</b><span>A solar-assisted vegetable shop on wheels, with a seat that turns to face customers.</span></a>
@@ -2203,6 +2223,11 @@ body.lb-open { overflow: hidden }
       <p class="cname">Manoj Manduva</p>
       <p>Concept, sketches and design. Manoj is a product designer based in Vancouver, BC, who works between a founder's vision and people's needs, bringing product thinking and design together. He holds a degree in Computer Science Engineering and a Master's in Information and Interface Design from the National Institute of Design, and is a Principal Product Designer at Oracle.</p>
       <a class="site" href="https://manojmanduva.com">manojmanduva.com</a>
+      <div class="contact">
+      <a class="cta" href="mailto:manojvmanduva@gmail.com?subject=KUNA%20Motors">Get in touch</a>
+      <a class="cta ghost" href="https://mail.google.com/mail/?view=cm&fs=1&to=manojvmanduva@gmail.com&su=KUNA%20Motors" target="_blank" rel="noopener">Write in Gmail</a>
+      <span class="addr"><span class="code">or email</span> <span class="mail">manojvmanduva@gmail.com</span> <button type="button" class="copy" data-copy="manojvmanduva@gmail.com">Copy</button></span>
+    </div>
     </div>
   </section>
 
@@ -2218,6 +2243,11 @@ body.lb-open { overflow: hidden }
   <div class="lb-stage"><button type="button" class="lb-btn lb-nav" id="lb-prev" aria-label="Previous image">‹</button><img id="lb-img" alt=""><button type="button" class="lb-btn lb-nav" id="lb-next" aria-label="Next image">›</button></div>
 </dialog>
 <script>
+document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
+  const done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1600); };
+  const pick = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = "Selected, press Ctrl/⌘ C"; };
+  try { navigator.clipboard.writeText(b.dataset.copy).then(done, pick); } catch (e) { pick(); }
+}));
 (() => {
   const dlg = document.getElementById("lightbox"), img = document.getElementById("lb-img");
   const cap = document.getElementById("lb-cap"), count = document.getElementById("lb-count");
